@@ -145,12 +145,10 @@ a:hover, a:focus {
 }
 
 .btn-primary {
-  background-color:#70cbce;
   color: #ffffff;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active {
-  background-color: #8be2e5;
   color: #ffffff;
   -webkit-transition: all 0.35s ease-in-out;
   -moz-transition: all 0.35s ease-in-out;
@@ -309,7 +307,7 @@ header {
   left: 0;
   right: 0;
   margin-left: 0px;
-  margin-bottom: 12%;
+  margin-bottom: 15%;
 }
 
 .signin {
