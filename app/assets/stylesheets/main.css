@@ -28,11 +28,19 @@ p, .lead {
   padding-top: 9px;
 }
 
-h1 {
+h1.homepage {
   font-size: 55px;
   line-height: 55px;
   letter-spacing: -1px;
   color: #ffffff;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 55px;
+  line-height: 55px;
+  letter-spacing: -1px;
+  color: #000;
   font-weight: 700;
 }
 
