@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root'welcome#home'
-  get '/register', to: 'users#new', as: 'register'
-  resources :users, except: [:new]
-
+  devise_scope :user do
+    get 'register', to: 'devise/registrations#new', as: 'register'
+  end
 end

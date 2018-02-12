@@ -20,10 +20,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    if params[:book].nil? || params[:book].empty?
-      return false
-    else
-      params.require(:user).permit(:email, :password, :firstname, :lastname, :username)
-    end
+    params.require(:user).permit(:email, :password, :firstname, :lastname, :username)
   end
 end
