@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   root'welcome#home'
   devise_scope :user do
     get 'register', to: 'devise/registrations#new', as: 'register'
+    get 'login', to: 'devise/sessions#new', as: 'login'
   end
 end
