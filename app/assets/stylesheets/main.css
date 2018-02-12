@@ -11,7 +11,7 @@
 /* ==========================================================================
    Global styles
    ========================================================================== */
-h1, h2, h3, h4, h5, h6, p, .btn, .navbar-nav a, .form-control, .list-inline, small{
+h1, h2, h3, h4, h5, h6, p, .btn, .navbar-nav a, .navbar-nav-2 a, .form-control, .list-inline, small{
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -19,10 +19,25 @@ p, .lead {
   font-family: 'Raleway', sans-serif;
 }
 
+.signup-container {
+  display: block;
+  margin: 0 auto;
+  width: 54%;
+}
+
 .corner-logo {
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
   color: #ffffff;
+  font-size: 20px;
+  letter-spacing: 1px;
+  padding-top: 9px;
+}
+
+.corner-logo-2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  color: #000;
   font-size: 20px;
   letter-spacing: 1px;
   padding-top: 9px;
@@ -271,8 +286,19 @@ a:hover, a:focus {
     letter-spacing: 1px;
 }
 
+.navbar-nav-2 > li > a, .navbar-nav-2 a {
+    color: #000;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
 .navbar-inverse .navbar-nav > li > a:hover {
     color: #ffffff;
+    opacity: 0.6;
+}
+
+.navbar-nav-2 > li > a:hover {
+    color: #000;
     opacity: 0.6;
 }
 
@@ -415,7 +441,7 @@ footer {
    Form styles
    ========================================================================== */
 .form-control {
-    background-color: #FFFFFF;
+/*    background-color: #FFFFFF;
     background-image: none;
     border: 0px solid transparent;
     border-radius: 4px;
@@ -426,7 +452,9 @@ footer {
     height: 60px;
     line-height: 1.42857;
     padding: 6px 12px;
-    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;*/
+    font-family: Raleway, sans-serif;
+    font-size: 15px!important;
 }
 
 .form-control::-moz-placeholder {
