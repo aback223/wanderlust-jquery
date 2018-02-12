@@ -45,6 +45,10 @@ h1 {
   font-weight: 700;
 }
 
+#error_explanation h2 {
+  font-size: 20px;
+}
+
 h2 {
   font-size: 40px;
   line-height: 40px;
