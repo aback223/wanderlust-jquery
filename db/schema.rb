@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180213023818) do
+ActiveRecord::Schema.define(version: 20180213024710) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "attendees", force: :cascade do |t|
+  create_table "attendee_lists", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "itinerary_id"
     t.datetime "created_at",   null: false
