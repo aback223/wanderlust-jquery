@@ -1,1 +1,2 @@
-Itinerary show page.
+<h2><%=@itinerary.trip_title%></h2>
+<label>Trip Date:</label><p><%= @itinerary.datestart.strftime("%m/%d/%Y") %> - <%= @itinerary.dateend.strftime("%m/%d/%Y") %></p>
