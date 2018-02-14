@@ -2,7 +2,7 @@ class ItineraryController < ApplicationController
   before_action :authenticate_user!
 
   def new
-    @itinerary = Itinerary.new
+    @itinerary = Itinerary.new(user_id: params[:user_id])
   end
 
   def create
@@ -17,6 +17,6 @@ class ItineraryController < ApplicationController
   private 
 
   def itinerary_params
-    params.require(:itinerary).permit(:trip_title, :dateend, :datestart)
+    params.require(:itinerary).permit(:trip_title, :dateend, :datestart, :user_ids => [])
   end
 end
