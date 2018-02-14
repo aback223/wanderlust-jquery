@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root'welcome#home'
 
   resources :users, only: [:show]
-  resources :attendeelists, only: [:create, :show, :index]
+  resources :memberships, only: [:create, :show, :index]
   resources :itinerary, except: [:new, :show, :index, :update, :destroy, :create]
 
   get '/users/:id/itineraries/new', to: 'itinerary#new', as: 'new_itinerary'
