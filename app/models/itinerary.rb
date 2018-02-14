@@ -1,5 +1,5 @@
 class Itinerary < ApplicationRecord
-  has_many :attendee_lists
-  has_many :users, through: :attendee_lists
+  has_many :memberships
+  has_many :users, through: :memberships
   validates :trip_title, presence: true
 end
