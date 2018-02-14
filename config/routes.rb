@@ -3,10 +3,12 @@ Rails.application.routes.draw do
   root'welcome#home'
 
   resources :users, only: [:show]
-  resources :itinerary, except: [:new, :show, :index]
+  resources :itinerary, except: [:new, :show, :index, :update, :destroy]
 
-  get '/users/:id/itinerary/new', to: 'itinerary#new', as: 'new_itinerary'
+  get '/users/:id/itineraries/new', to: 'itinerary#new', as: 'new_itinerary'
   get '/users/:id/itineraries', to: 'users#itinerary_index'
+  get '/users/:id/itineraries/:itinerary_id', to: 'users#itinerary', as: 'itinerary'
+
   devise_scope :user do
     get 'register', to: 'devise/registrations#new', as: 'register'
     get 'login', to: 'devise/sessions#new', as: 'login'

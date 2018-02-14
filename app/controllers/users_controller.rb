@@ -4,4 +4,10 @@ class UsersController < ApplicationController
     @itineraries = @user.itineraries
     redirect_to user_path(@user) #users/:id
   end
+
+  def itinerary
+    @user = User.find(params[:id])
+    @itinerary.find(params[:itinerary_id])
+    render template 'itinerary/show'
+  end
 end
