@@ -47,12 +47,18 @@
             <div class="row">
               <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
                 <div class="row">
-                  <div class="col-xs-6 text-right wow fadeInUp" data-wow-delay="1s">
-                    <%= link_to "Learn More", "#", :class => "btn btn-secondary btn-lg"%>
-                  </div>
-                  <div class="col-xs-6 text-left wow fadeInUp" data-wow-delay="1.4s">
-                    <%= link_to "Get Started", register_path, :class => "btn btn-primary btn-lg"%>
-                  </div>
+                  <% if user_signed_in? %>
+                    <div class="col-xs-12 text-center wow fadeInUp" data-wow-delay="1.4s">
+                      <%= link_to "Get Started", register_path, :class => "btn btn-primary btn-lg"%>
+                    </div>
+                  <% else %>
+                    <div class="col-xs-6 text-right wow fadeInUp" data-wow-delay="1s">
+                      <%= link_to "Learn More", "#", :class => "btn btn-secondary btn-lg"%>
+                    </div>
+                    <div class="col-xs-6 text-left wow fadeInUp" data-wow-delay="1.4s">
+                      <%= link_to "Get Started", register_path, :class => "btn btn-primary btn-lg"%>
+                    </div>
+                  <% end %>
                 </div><!--End Button Row-->  
               </div>
             </div>
