@@ -12,6 +12,7 @@
     <%= f.label :dateend, "Date End" %>:
     <%= select_date Date.today, prefix: :dateend %>
   </div>
+  <%= f.hidden_field :user_id, value: current_user.id %>
   <div class="actions">
     <%= f.submit "Create Trip", class: 'btn btn-sm btn-primary' %>
   </div>
