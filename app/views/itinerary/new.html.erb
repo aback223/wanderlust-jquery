@@ -6,14 +6,15 @@
   </div>
   <div class="field">
     <%= f.label :datestart, "Date Start" %>:
-    <%= select_date Date.today, prefix: :datestart %>
+    <%= f.date_field :datestart %>
   </div>
   <div class="field">
     <%= f.label :dateend, "Date End" %>:
-    <%= select_date Date.today, prefix: :dateend %>
+    <%= f.date_field :dateend %>
   </div>
-  <%= f.hidden_field :user_id, value: current_user.id %>
-  <%= f.hidden_field, value: @itinerary.id %>
+  <div class="field">
+    <%= f.hidden_field :user_id, value: current_user.id %>
+  </div>
   <div class="actions">
     <%= f.submit "Create Trip", class: 'btn btn-sm btn-primary' %>
   </div>
