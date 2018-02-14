@@ -8,6 +8,8 @@ class ItineraryController < ApplicationController
   def create
     @itinerary = Itinerary.new(itinerary_params)
     if @itinerary.save
+      user = User.find(params[:itinerary][:user_id])
+      user.itineraries.push(@itinerary)
       render template: 'users/show'
     else
       redirect_to new_itinerary_path
