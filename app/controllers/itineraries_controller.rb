@@ -1,5 +1,13 @@
-class ItineraryController < ApplicationController
+class ItinerariesController < ApplicationController
   before_action :authenticate_user!
+
+  def index
+    if user_signed_in?
+      @itineraries = User.find(current_user.id).itineraries
+    else
+      @itineraries = Itinerary.all
+    end
+  end
 
   def new
     @itinerary = Itinerary.new
@@ -12,8 +20,12 @@ class ItineraryController < ApplicationController
       user.itineraries.push(@itinerary)
       render template: 'users/show'
     else
-      redirect_to new_itinerary_path
+      redirect_to new_user_itinerary_path
     end
+  end
+
+  def show
+    @itinerary = Itinerary.find(params[:id])
   end
 
   private 
