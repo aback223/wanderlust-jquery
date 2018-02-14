@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
 
   def itinerary
-    @user = User.find(params[:user_id]
+    @user = User.find(params[:user_id])
     @itinerary = Itinerary.find(params[:id])
     render template: 'users/show'
   end
