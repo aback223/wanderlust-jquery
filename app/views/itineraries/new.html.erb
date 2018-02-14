@@ -1,6 +1,6 @@
 <h2>New Trip</h2>
 
-<%= form_for @itinerary, url: itineraries_path, method: :post do |f| %>
+<%= form_for @itinerary, url: user_itineraries_path, method: :post do |f| %>
   <div class="field">
     <%= f.text_field :trip_title, placeholder: "Title" %>
   </div>
@@ -11,9 +11,6 @@
   <div class="field">
     <%= f.label :dateend, "Date End" %>:
     <%= f.date_field :dateend %>
-  </div>
-  <div class="field">
-    <%= f.hidden_field :user_id, value: current_user.id %>
   </div>
   <div class="actions">
     <%= f.submit "Create Trip", class: 'btn btn-sm btn-primary' %>
