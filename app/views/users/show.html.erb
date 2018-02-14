@@ -1,7 +1,10 @@
 <h3>Welcome, <%= current_user.firstname %>!</h3>
-<%=link_to "Plan New Trip", new_itinerary_path, class: 'btn-sm btn-primary btn' %>
+<%=link_to "Plan New Trip", new_user_itinerary_path(@user.id), class: 'btn-sm btn-primary btn' %>
 
-<% current_user.itineraries.each do |i| %>
-  <%= i.trip_title%>
-<% end %>
+<h3>Trips</h3>
+<ul>
+  <% current_user.itineraries.each do |i| %>
+    <li><%= link_to i.trip_title, user_itinerary_path(i) %></li>
+  <% end %>
+</ul>
 
