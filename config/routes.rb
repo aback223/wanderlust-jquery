@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show] do
     resources :itineraries
   end
+
   resources :memberships, only: [:create, :show, :index]
   resources :invites
 
