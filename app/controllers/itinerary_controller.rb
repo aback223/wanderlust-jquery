@@ -1,9 +1,18 @@
 class ItineraryController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @itinerary = Itinerary.new
   end
 
-  
+  def create
+    @itinerary = Itinerary.new(itinerary_params)
+    if @itinerary.save
+      redirect_to "#{user_path}/#{current_user.id}"
+    else
+      redirect_to new_itinerary_path
+    end
+  end
 
   private 
 
