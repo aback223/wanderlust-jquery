@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   resources :memberships, only: [:create, :show, :index]
   resources :itinerary, except: [:new, :show, :index, :update, :destroy, :create]
-
+  resources :invites
+  
   get '/users/:id/itineraries/new', to: 'itinerary#new', as: 'new_itinerary'
   get '/users/:id/itineraries', to: 'users#itinerary_index', as: 'itineraries'
   get '/users/:id/itineraries/:itinerary_id', to: 'users#itinerary', as: 'itinerary'
