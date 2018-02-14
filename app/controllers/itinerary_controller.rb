@@ -1,11 +1,9 @@
 class ItineraryController < ApplicationController
-  def index 
-    @itineraries = Itinerary.all
-  end
-
   def new
     @itinerary = Itinerary.new
   end
+
+  
 
   private 
 
