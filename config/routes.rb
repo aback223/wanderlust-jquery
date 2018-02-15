@@ -13,6 +13,4 @@ Rails.application.routes.draw do
     get 'register', to: 'devise/registrations#new', as: 'register'
     get 'login', to: 'devise/sessions#new', as: 'login'
   end
-
-  get '/auth/facebook/callback' => 'sessions#create'
 end
