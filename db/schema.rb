@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180217161925) do
+ActiveRecord::Schema.define(version: 20180217165404) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,9 +33,10 @@ ActiveRecord::Schema.define(version: 20180217161925) do
     t.string   "trip_title"
   end
 
-  create_table "itinerary_tags", force: :cascade do |t|
+  create_table "itinerary_images", force: :cascade do |t|
+    t.string  "img_url"
+    t.string  "caption"
     t.integer "itinerary_id"
-    t.integer "tag_id"
   end
 
   create_table "memberships", force: :cascade do |t|
@@ -56,10 +57,6 @@ ActiveRecord::Schema.define(version: 20180217161925) do
     t.integer  "place_id"
     t.integer  "itinerary_id"
     t.string   "title"
-  end
-
-  create_table "tags", force: :cascade do |t|
-    t.string "name"
   end
 
   create_table "to_do_lists", force: :cascade do |t|
