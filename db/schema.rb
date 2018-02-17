@@ -10,14 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180217201028) do
+ActiveRecord::Schema.define(version: 20180217202423) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "images", force: :cascade do |t|
-    t.string "url"
-    t.string "caption"
+    t.string  "url"
+    t.string  "caption"
+    t.integer "itinerary_id"
   end
 
   create_table "invites", force: :cascade do |t|
@@ -36,11 +37,6 @@ ActiveRecord::Schema.define(version: 20180217201028) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "trip_title"
-  end
-
-  create_table "itinerary_images", force: :cascade do |t|
-    t.integer "itinerary_id"
-    t.integer "image_id"
   end
 
   create_table "memberships", force: :cascade do |t|
