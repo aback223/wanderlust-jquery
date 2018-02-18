@@ -5,9 +5,9 @@ class Itinerary < ApplicationRecord
   validates :trip_title, presence: true
   has_many :images
 
-  def image_attributes=(image_attributes)
-    image_attributes.values.each do |image_attribute|
-      self.images.build(image_attribute)
+  def images_attributes=(images_attributes)
+    images_attributes.values.each do |image_attributes|
+      self.images.build(image_attributes)
     end
   end
 end

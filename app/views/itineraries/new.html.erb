@@ -12,6 +12,17 @@
     <%= f.label :dateend, "Date End" %>:
     <%= f.date_field :dateend %>
   </div>
+  <br>
+  <div class="field">
+  <h3>Add some pics!</h3>
+    <%= f.fields_for :images do |image| %>
+      <%= image.label :url, "Link:" %>
+      <%= image.text_field :url %><br>
+
+      <%= image.label :caption, "Caption:" %>
+      <%= image.text_field :caption %><br><br>
+    <% end %>
+  </div>
   <div class="actions">
     <%= f.submit "Create Trip", class: 'btn btn-sm btn-primary' %>
   </div>

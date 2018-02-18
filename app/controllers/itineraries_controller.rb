@@ -11,9 +11,12 @@ class ItinerariesController < ApplicationController
 
   def new
     @itinerary = Itinerary.new
+    @itinerary.images.build(image_num: '0')
+    @itinerary.images.build(image_num: '1')
   end
 
   def create
+    raise params.inspect
     @itinerary = Itinerary.new(itinerary_params)
     if @itinerary.save
       user = User.find(params[:user_id])
@@ -31,6 +34,12 @@ class ItinerariesController < ApplicationController
   private 
 
   def itinerary_params
-    params.require(:itinerary).permit(:trip_title, :dateend, :datestart)
+    params.require(:itinerary).permit(:trip_title, :dateend, :datestart, 
+      images_attributes: [
+        :url, 
+        :caption, 
+        :image_num
+     ]
+   )
   end
 end
