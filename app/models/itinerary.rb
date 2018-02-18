@@ -10,4 +10,18 @@ class Itinerary < ApplicationRecord
       self.images.build(image_attributes)
     end
   end
+
+  def self.most_recent
+    order(:datestart)
+  end
+
+  def self.by_user(user)
+    itineraries = []
+    Itinerary.all.each do |i|
+      if i.users.include?(user)
+        itineraries << i
+      end
+    end
+    itineraries
+  end
 end
