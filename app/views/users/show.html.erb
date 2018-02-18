@@ -15,7 +15,7 @@
       <h3>Upcoming Trips</h3>
       <ul>
         <% @recent_trips.each do |p| %>
-          <li> <%=p.datestart.strftime("%m/%d/%Y")%> - <%= p.trip_title %></li>
+          <li> <%= link_to "#{p.datestart.strftime("%m/%d/%Y")} - #{p.trip_title}", user_itinerary_path(current_user, p) %></li>
         <% end %>
       </ul>
     </div>
