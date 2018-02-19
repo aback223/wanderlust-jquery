@@ -1,0 +1,21 @@
+<div class="field">
+  <%= f.text_field :trip_title, placeholder: "Title" %>
+</div>
+<div class="field">
+  <%= f.label :datestart, "Date Start" %>:
+  <%= f.date_field :datestart %>
+</div>
+<div class="field">
+  <%= f.label :dateend, "Date End" %>:
+  <%= f.date_field :dateend %>
+</div>
+<br>
+<div class="field">
+<h3>Add some pics!</h3>
+  <%= f.fields_for :images do |image| %>
+    <%= render partial: 'image_fields', locals: { image: image}%>
+  <% end %>
+</div>
+<div class="actions">
+  <%= f.submit "Create Trip", class: 'btn btn-sm btn-primary' %>
+</div>
