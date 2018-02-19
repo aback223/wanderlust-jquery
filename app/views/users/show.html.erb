@@ -8,6 +8,7 @@
           <li>
             <%= link_to i.trip_title, user_itinerary_path(@user, i) %>
             <%= link_to "Edit", edit_user_itinerary_path(@user, i) %>
+            <%= link_to "Delete", user_itinerary_path(@user, i), method: :delete, data: {confirm: "Are you sure?"} %>
           </li>
         <% end %>
       </ul>

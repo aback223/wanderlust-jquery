@@ -42,6 +42,11 @@ class ItinerariesController < ApplicationController
     render 'users/show'
   end
 
+  def destroy 
+    Itinerary.find(params[:id]).destroy
+    redirect_to user_path(current_user)
+  end
+
   private 
 
   def itinerary_params
