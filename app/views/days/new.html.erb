@@ -1,0 +1,11 @@
+<h2>New Day</h2>
+
+<%= form_for @day, url: itinerary_days_path(@itinerary), method: :post do |f| %>
+  <div class="field">
+    <%= f.text_field :title, placeholder: "ie. Day One"%>
+  </div>
+  <br>
+  <div class="actions">
+    <%= f.submit "Add New Day", class: 'btn btn-sm btn-primary' %>
+  </div>
+<% end %>
