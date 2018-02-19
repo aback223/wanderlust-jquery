@@ -20,7 +20,7 @@ class ItinerariesController < ApplicationController
     if @itinerary.save
       user = User.find(params[:user_id])
       user.itineraries.push(@itinerary)
-      render template: 'users/show'
+      redirect_to user_path(current_user)
     else
       redirect_to new_user_itinerary_path
     end

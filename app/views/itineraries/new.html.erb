@@ -1,6 +1,6 @@
 <h2>New Trip</h2>
 
-<%= form_for @itinerary, url: user_itineraries_path, method: :post do |f| %>
+<%= form_for @itinerary, url: user_path(current_user), method: :post do |f| %>
   <div class="field">
     <%= f.text_field :trip_title, placeholder: "Title" %>
   </div>
