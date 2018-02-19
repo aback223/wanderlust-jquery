@@ -1,6 +1,16 @@
 <h2><%=@itinerary.trip_title%></h2>
 <h5><strong>Trip Date:</strong> <%= @itinerary.datestart.strftime("%m/%d/%Y") %> - <%= @itinerary.dateend.strftime("%m/%d/%Y") %></h5>
-<%=link_to "Plan A Day", new_itinerary_day_path(@itinerary), class: "btn btn-sm btn-primary" %><br><br>
+<%=link_to "Plan A Day", new_itinerary_day_path(@itinerary), class: "btn btn-sm btn-primary" %><br>
+<div class="container">
+  <div class="row">
+    <h3>Images</h3>
+    <% @itinerary.images.each do |image| %>
+    <div class="col img-thumbnail">
+      <%= link_to image_tag("#{image.url}", class: "pic-thumbnail"), image.url %>
+    </div>
+    <% end %>
+  </div>
+</div>
 
 <div class="container">
   <% if @days %>

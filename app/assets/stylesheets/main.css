@@ -25,6 +25,10 @@ p, .lead {
   width: 54%;
 }
 
+.pic-thumbnail {
+  height: 150px;
+}
+
 .corner-logo {
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
