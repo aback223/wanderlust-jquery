@@ -32,6 +32,16 @@ class ItinerariesController < ApplicationController
     render :show
   end
 
+  def edit
+    @itinerary = Itinerary.find(params[:id])
+  end
+
+  def update
+    @itinerary = Itinerary.find(params[:id])
+    @itinerary.update(itinerary_params)
+    render 'users/show'
+  end
+
   private 
 
   def itinerary_params

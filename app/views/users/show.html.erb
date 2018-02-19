@@ -5,7 +5,10 @@
       <%=link_to "Plan New Trip", new_user_itinerary_path(current_user.id), class: "btn btn-sm btn-primary" %><br><br>
       <ul>
         <% @user.itineraries.each do |i| %>
-          <li><%= link_to i.trip_title, user_itinerary_path(current_user, i) %></li>
+          <li>
+            <%= link_to i.trip_title, user_itinerary_path(@user, i) %>
+            <%= link_to "Edit", edit_user_itinerary_path(@user, i) %>
+          </li>
         <% end %>
       </ul>
     </div>
@@ -14,7 +17,9 @@
       <% if @upcoming_trips %>
         <ul>
           <% @upcoming_trips.each do |p| %>
-            <li> <%= link_to "#{p.datestart.strftime("%m/%d/%Y")} - #{p.trip_title}", user_itinerary_path(current_user, p) %></li>
+            <li> 
+              <%= link_to "#{p.datestart.strftime("%m/%d/%Y")} - #{p.trip_title}", user_itinerary_path(current_user, p) %>
+            </li>
           <% end %>
         </ul>
       <% else %>
