@@ -39,7 +39,7 @@ class ItinerariesController < ApplicationController
   def update
     @itinerary = Itinerary.find(params[:id])
     @itinerary.update(itinerary_params)
-    render 'users/show'
+    render user_path(current_user)
   end
 
   def destroy 
