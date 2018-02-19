@@ -6,7 +6,8 @@
   <% if @days %>
     <% @days.each do |day| %>
       <div class="row">
-        <h3><%=day.title %></h3>
+        <h3><%= day.title %></h3>
+        <p><%= day.date.strftime("%m/%d/%Y") %></p>
         <%= link_to "Add Activity", "#" %>
       </div>
     <% end %>
