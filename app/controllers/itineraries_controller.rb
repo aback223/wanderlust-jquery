@@ -34,12 +34,16 @@ class ItinerariesController < ApplicationController
 
   def edit
     @itinerary = Itinerary.find(params[:id])
+    @user = User.find(params[:user_id])
   end
 
   def update
     @itinerary = Itinerary.find(params[:id])
-    @itinerary.update(itinerary_params)
-    render user_path(current_user)
+    if @itinerary.update(itinerary_params)
+      redirect_to user_path(current_user)
+    else
+      render 'itineraries/edit'
+    end
   end
 
   def destroy 
@@ -51,11 +55,6 @@ class ItinerariesController < ApplicationController
 
   def itinerary_params
     params.require(:itinerary).permit(:trip_title, :dateend, :datestart, 
-      images_attributes: [
-        :url, 
-        :caption, 
-        :image_num
-     ]
-   )
+      images_attributes: [:id, :url, :caption, :image_num])
   end
 end
