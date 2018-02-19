@@ -1,3 +1,13 @@
 <h2><%=@itinerary.trip_title%></h2>
 <h5><strong>Trip Date:</strong> <%= @itinerary.datestart.strftime("%m/%d/%Y") %> - <%= @itinerary.dateend.strftime("%m/%d/%Y") %></h5>
-<%=link_to "Add Day", new_day_path, class: "btn btn-sm btn-primary" %><br><br>
+<%=link_to "Add Day", new_itinerary_day_path(@itinerary), class: "btn btn-sm btn-primary" %><br><br>
+
+<div class="container">
+  <% if @days %>
+    <% @days.each do |day| %>
+      <div class="row">
+        <%=day.title %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
