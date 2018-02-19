@@ -1,2 +1,3 @@
 <h2><%=@itinerary.trip_title%></h2>
 <h5><strong>Trip Date:</strong> <%= @itinerary.datestart.strftime("%m/%d/%Y") %> - <%= @itinerary.dateend.strftime("%m/%d/%Y") %></h5>
+<%=link_to "Add Day", new_day_path, class: "btn btn-sm btn-primary" %><br><br>

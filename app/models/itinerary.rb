@@ -4,6 +4,7 @@ class Itinerary < ApplicationRecord
   has_many :invites
   validates :trip_title, presence: true
   has_many :images
+  has_many :days
 
   def images_attributes=(images_attributes)
     images_attributes.values.each do |image_attributes|
