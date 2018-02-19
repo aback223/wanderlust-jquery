@@ -17,10 +17,11 @@
 <div class="container">
   <% if @days %>
     <% @days.each do |day| %>
-      <div class="row">
-        <h3><%= day.title %></h3>
-        <p><%= day.date.strftime("%m/%d/%Y") %></p>
-        <%= link_to "Add Activity", "#" %>
+      <div class="row" >
+        <h3><%= day.title %> - <%= day.date.strftime("%m/%d/%Y") %></h3>
+        <%=link_to "Edit Day", edit_itinerary_day_path(@itinerary, day), class: "btn btn-sm btn-primary" %>
+        <%= link_to "Delete Day", itinerary_day_path(@itinerary, day), method: :delete, data: {confirm: "Are you sure?"} %>
+        <%= link_to "Add Activity", "#", class: "btn btn-sm btn-primary" %>
       </div>
     <% end %>
   <% end %>
