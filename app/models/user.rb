@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, 
          omniauth_providers: %i[facebook]
 
-  # validates :firstname, presence: true
+  validates :firstname, presence: true
   # validates :lastname, presence: true
   has_many :memberships
   has_many :itineraries, through: :memberships
