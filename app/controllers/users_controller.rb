@@ -3,6 +3,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @recent_trips = Itinerary.by_user(current_user) && Itinerary.most_recent
+    @recent_trips = Itinerary.most_recent_by_user(current_user)
   end
 end

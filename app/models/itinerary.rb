@@ -11,13 +11,9 @@ class Itinerary < ApplicationRecord
     end
   end
 
-  def self.most_recent
-    order(:datestart)
-  end
-
-  def self.by_user(user)
+  def self.most_recent_by_user(user)
     itineraries = []
-    Itinerary.all.each do |i|
+    Itinerary.all.order(:datestart).each do |i|
       if i.users.include?(user)
         itineraries << i
       end
