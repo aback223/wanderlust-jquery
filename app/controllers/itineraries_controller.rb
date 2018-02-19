@@ -16,7 +16,6 @@ class ItinerariesController < ApplicationController
   end
 
   def create
-    raise params.inspect
     @itinerary = Itinerary.new(itinerary_params)
     if @itinerary.save
       user = User.find(params[:user_id])
