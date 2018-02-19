@@ -6,7 +6,7 @@
       <h3>Trips</h3>
       <%=link_to "Plan New Trip", new_user_itinerary_path(current_user.id), class: "btn btn-sm btn-primary" %><br><br>
       <ul>
-        <% current_user.itineraries.each do |i| %>
+        <% @user.itineraries.each do |i| %>
           <li><%= link_to i.trip_title, user_itinerary_path(current_user, i) %></li>
         <% end %>
       </ul>
