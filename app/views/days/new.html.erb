@@ -1,14 +1,5 @@
 <h2>New Day</h2>
 
 <%= form_for @day, url: itinerary_days_path(@itinerary), method: :post do |f| %>
-  <div class="field">
-    <%= f.text_field :title, placeholder: "ie. Day One"%>
-  </div>
-  <div class="field">
-    <%= f.date_field :date%>
-  </div>
-  <br>
-  <div class="actions">
-    <%= f.submit "Add New Day", class: 'btn btn-sm btn-primary' %>
-  </div>
+  <%= render partial: 'form', locals: { f: f } %>
 <% end %>

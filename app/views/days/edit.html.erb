@@ -1,0 +1,5 @@
+<h2>Edit Day</h2>
+
+<%= form_for @day, url: itinerary_day_path(@itinerary, @day), method: :patch do |f| %>
+  <%= render partial: 'form', locals: { f: f } %>
+<% end %>
