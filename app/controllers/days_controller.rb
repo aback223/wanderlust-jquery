@@ -25,6 +25,11 @@ class DaysController < ApplicationController
     redirect_to itinerary_path(@day.itinerary)
   end
 
+  def destroy
+    @day = Day.find(params[:id]).destroy
+    redirect_to itinerary_path(@day.itinerary)
+  end
+
   private
 
   def days_params
