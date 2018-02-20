@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180219202449) do
+ActiveRecord::Schema.define(version: 20180220181450) do
 
   create_table "days", force: :cascade do |t|
     t.string  "title"
@@ -43,14 +43,7 @@ ActiveRecord::Schema.define(version: 20180219202449) do
     t.string   "trip_title"
   end
 
-  create_table "memberships", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "itinerary_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
-  create_table "places", force: :cascade do |t|
+  create_table "locations", force: :cascade do |t|
     t.string   "street_address"
     t.string   "city"
     t.string   "state"
@@ -58,9 +51,18 @@ ActiveRecord::Schema.define(version: 20180219202449) do
     t.string   "string"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
-    t.integer  "place_id"
-    t.integer  "itinerary_id"
+  end
+
+  create_table "memberships", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "itinerary_id"
+  end
+
+  create_table "places", force: :cascade do |t|
     t.string   "title"
+    t.integer  "itinerary_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "to_do_lists", force: :cascade do |t|
@@ -88,6 +90,8 @@ ActiveRecord::Schema.define(version: 20180219202449) do
     t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
     t.string   "provider"
     t.string   "uid"
     t.index ["email"], name: "index_users_on_email", unique: true
