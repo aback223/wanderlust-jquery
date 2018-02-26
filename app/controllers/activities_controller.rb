@@ -13,4 +13,10 @@ class ActivitiesController < ApplicationController
       render :new
     end
   end
+
+  private 
+
+  def activity_params
+    params.require(:activity).permit(:title, :activity_type, :address, :url, :notes)
+  end
 end
