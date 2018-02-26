@@ -16,10 +16,6 @@ class DaysController < ApplicationController
 
   def show
     @day = Day.find(params[:id])
-    respond_to do |format|
-      format.html {render :show}
-      format.json {render json: @day}
-    end
   end
 
   def edit
