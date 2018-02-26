@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_itinerary
   
   def after_sign_in_path_for(resource)
-    user_path(current_user)
+    welcome_path
   end
   
   protected
