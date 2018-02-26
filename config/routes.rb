@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   resources :itineraries, only: [:show] do
     resources :days
+    resources :images, only: [:new, :create, :destroy]
   end
 
   devise_scope :user do
