@@ -21,6 +21,8 @@ Rails.application.routes.draw do
     resources :activities
   end
 
+  get '/welcome', to: 'itineraries#index', as: 'welcome'
+
   devise_scope :user do
     get 'register', to: 'devise/registrations#new', as: 'register'
     get 'login', to: 'devise/sessions#new', as: 'login'
