@@ -23,8 +23,8 @@
       <div class="row" >
         <h3><%= day.title %> - <%= day.date.strftime("%m/%d/%Y") %></h3>
         <% if @itinerary.users.include?(current_user) %>
-          <%=link_to "Edit Day", edit_itinerary_day_path(@itinerary, day), class: "btn btn-sm btn-primary" %>
-          <%= link_to "Delete Day", itinerary_day_path(@itinerary, day), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-sm btn-primary" %>
+          <%=link_to "Edit", edit_itinerary_day_path(@itinerary, day), class: "btn btn-sm btn-primary" %>
+          <%= link_to "Delete", itinerary_day_path(@itinerary, day), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-sm btn-primary" %>
           <%= link_to "Add Activity", "#", class: "btn btn-sm btn-primary" %>
         <% end %>
       </div>
