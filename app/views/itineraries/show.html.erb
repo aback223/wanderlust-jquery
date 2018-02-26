@@ -21,7 +21,7 @@
   <% if @days %>
     <% @days.each do |day| %>
       <div class="row" >
-        <h3><%= day.title %> - <%= day.date.strftime("%m/%d/%Y") %></h3>
+        <h3><%= link_to "#{day.title} - #{day.date.strftime("%m/%d/%Y")}", itinerary_day_path(@itinerary, day) %></h3>
         <% if @itinerary.users.include?(current_user) %>
           <%=link_to "Edit", edit_itinerary_day_path(@itinerary, day), class: "btn btn-sm btn-primary" %>
           <%= link_to "Delete", itinerary_day_path(@itinerary, day), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-sm btn-primary" %>
