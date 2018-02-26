@@ -28,6 +28,13 @@
           <%= link_to "Add Activity", new_day_activity_path(day), class: "btn btn-sm btn-primary" %>
         <% end %>
       </div>
+      <div class="row">
+        <% day.activities.each do |a| %>
+          <ul>
+            <li><%= link_to "#{a.title} [#{a.activity_type}]", day_activity_path(day, a) %></li>
+          </ul>
+        <% end %>
+      </div>
     <% end %>
   <% end %>
 </div>
