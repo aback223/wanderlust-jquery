@@ -14,7 +14,12 @@
     <% if @itinerary.images %>
       <div class="col">
         <% @itinerary.images.each do |image| %>
-          <%if !image.url.empty? %><%= link_to image_tag("#{image.url}", class: "img-thumbnail pic-thumbnail"), image.url %><% end %>
+          <div class="img-thumbnail text-right">
+            <% if @itinerary.users.include?(current_user) %>
+              <strong><%= link_to "Delete", itinerary_image_path(@itinerary, image), method: :delete, data: {confirm: "Are you sure?" } %></strong><br>
+            <% end %>
+              <%if !image.url.empty? %><%= link_to image_tag("#{image.url}", class: "pic-thumbnail"), image.url %><% end %>
+          </div>
         <% end %>
       </div>
     <% end %>
