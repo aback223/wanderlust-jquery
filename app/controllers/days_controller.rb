@@ -1,4 +1,6 @@
 class DaysController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @day = Day.new
     @itinerary = Itinerary.find(params[:itinerary_id])
@@ -21,6 +23,11 @@ class DaysController < ApplicationController
   def edit
     @day = Day.find(params[:id])
     @itinerary = @day.itinerary
+    if @itinerary.users[0] == current_user
+      render :edit
+    else 
+      redirect_to day_path(@day)
+    end
   end
 
   def update
