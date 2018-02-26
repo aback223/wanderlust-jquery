@@ -5,9 +5,12 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-xs-6">
-      <h3>Trips</h3>
-      <%=link_to "Plan New Trip", new_user_itinerary_path(current_user.id), class: "btn btn-sm btn-primary" %><br><br>
+    <div class="col-xs-4"></div>
+    <div class="col-xs-4">
+      <div class="text-center">
+      <h2>Trips</h2>
+        <%=link_to "Plan New Trip", new_user_itinerary_path(current_user.id), class: "btn btn-sm btn-primary" %><br><br>
+      </div>
       <ul>
         <% @user.itineraries.each do |i| %>
           <li>
@@ -19,14 +22,11 @@
         <% end %>
       </ul>
     </div>
-    <div class="col-xs-6">
-      <h3>Upcoming Trips</h3>
+    <div class="col-xs-4 text-center">
+      <h4><strong>Upcoming Trips</strong></h4>
       <% if @upcoming_trips %>
-        <ul>
           <% @upcoming_trips.each do |p| %>
-            <li> 
-              <%= link_to "#{p.datestart.strftime("%m/%d/%Y")} - #{p.trip_title}", user_itinerary_path(current_user, p) %>
-            </li>
+            <%= link_to "#{p.datestart.strftime("%m/%d/%Y")} - #{p.trip_title}", user_itinerary_path(current_user, p) %><br>
           <% end %>
         </ul>
       <% else %>
