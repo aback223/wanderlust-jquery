@@ -1,0 +1,12 @@
+<ol class="breadcrumb text-center" style="margin-top: 20px ">
+  <li class="breadcrumb-item active"><%= link_to @activity.day.itinerary.trip_title, itinerary_path(@activity.day.itinerary) %></a></li>
+  <li class="breadcrumb-item in-active"><%= @activity.day.title %> - <%= @activity.day.date.strftime("%m/%d/%Y")%>
+</ol>
+
+<h2><%= @activity.title %></h2>
+<ul>
+  <li><strong>Activity Type: </strong><%= @activity.activity_type %></li>
+  <li><strong>Address: </strong><%= @activity.address %></li>
+  <li><strong>URL: </strong><%= @activity.url %></li>
+  <li><strong>Notes: </strong><%= @activity.notes %></li>
+</ul>
