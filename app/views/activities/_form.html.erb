@@ -1,0 +1,23 @@
+<div class="field">
+  <%= f.text_field :title, placeholder: "Title" %>
+</div>
+<br>
+<div class="field">
+  <%= f.select :activity_type, ['Food', 'Activity'] %>
+</div>
+<br>
+<div class="field">
+  <%= f.text_field :address, placeholder: "Address" %>
+</div>
+<br>
+<div class="field">
+  <%= f.text_field :url, placeholder: "URL" %>
+</div>
+<br>
+<div class="field">
+  Notes:<br><%= f.text_area :notes %>
+</div>
+<br>
+<div class="actions">
+  <%= f.submit submit_text, class: 'btn btn-sm btn-primary' %>
+</div>
