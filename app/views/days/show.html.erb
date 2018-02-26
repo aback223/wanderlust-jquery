@@ -6,13 +6,17 @@
 <h2><%= @day.title %> (<%= @day.date %>)</h2>
 
 <div class="dayActivities">
-  <% @day.activities.each do |a| %>
-    <ul>
-      <h3><%= a.title %></h3>
-      <li><strong>Activity Type: </strong><%= a.activity_type %></li>
-      <li><strong>Address: </strong><%= a.address %></li>
-      <li><strong>URL: </strong><%= a.url %></li>
-      <li><strong>Notes: </strong><%= a.notes %></li>
-    </ul>
+  <% if @day.activities.empty? %>
+    Add some activities!
+  <% else %>
+    <% @day.activities.each do |a| %>
+      <ul>
+        <h3><%= a.title %></h3>
+        <li><strong>Activity Type: </strong><%= a.activity_type %></li>
+        <li><strong>Address: </strong><%= a.address %></li>
+        <li><strong>URL: </strong><%= a.url %></li>
+        <li><strong>Notes: </strong><%= a.notes %></li>
+      </ul>
+    <% end %>
   <% end %>
 </div>
