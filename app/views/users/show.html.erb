@@ -8,7 +8,6 @@
           <li>
             <%= link_to i.trip_title, user_itinerary_path(@user, i) %>
               <% if current_user.itineraries.include?(i) %>
-                <strong><%= link_to "Edit", edit_user_itinerary_path(@user, i) %></strong>
                 <strong><%= link_to "Delete", user_itinerary_path(@user, i), method: :delete, data: {confirm: "Are you sure?"} %></strong>
               <% end %>
           </li>
