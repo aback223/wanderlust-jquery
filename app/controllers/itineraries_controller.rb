@@ -2,10 +2,10 @@ class ItinerariesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    if user_signed_in?
-      @itineraries = User.find(current_user.id).itineraries
-    else
-      @itineraries = Itinerary.all
+    @itineraries = Itinerary.all
+    respond_to do |format|
+      format.html {render :index}
+      format.json {render json: @itineraries}
     end
   end
 
@@ -22,7 +22,8 @@ class ItinerariesController < ApplicationController
       user.itineraries.push(@itinerary)
       redirect_to user_path(current_user)
     else
-      redirect_to new_user_itinerary_path
+      @errors = @itinerary.errors
+      render :new
     end
   end
 
@@ -39,7 +40,7 @@ class ItinerariesController < ApplicationController
 
   def update
     @itinerary = Itinerary.find(params[:id])
-    if @itinerary.update(itinerary_params)
+    if @itinerary.update_attributes(itinerary_params)
       redirect_to user_path(current_user)
     else
       render 'itineraries/edit'
@@ -55,6 +56,6 @@ class ItinerariesController < ApplicationController
 
   def itinerary_params
     params.require(:itinerary).permit(:trip_title, :dateend, :datestart, 
-      images_attributes: [:url, :caption, :image_num])
+      images_attributes: [:id, :url, :caption, :image_num])
   end
 end
