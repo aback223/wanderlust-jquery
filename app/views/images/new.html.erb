@@ -1,0 +1,11 @@
+<ol class="breadcrumb text-center" style="margin-top: 20px ">
+  <li class="breadcrumb-item active"><%= link_to @itinerary.trip_title, itinerary_path(@itinerary) %></a></li>
+  <li class="breadcrumb-item in-active">Add Image</li>
+</ol>
+
+<h2>Add Image</h2>
+<div class="imageForm">
+  <%= form_for ([@itinerary, @image]) do |f| %>
+    <%= render partial: 'form', locals: { f: f } %>
+  <% end %>
+</div>
