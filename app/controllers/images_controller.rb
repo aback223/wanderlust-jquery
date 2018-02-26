@@ -13,4 +13,15 @@ class ImagesController < ApplicationController
       render :new
     end
   end
+
+  def destroy
+    image = Image.find(params[:id])
+    user = image.itinerary.users[0]
+    if user == current_user
+      image.destroy
+      redirect_to itinerary_path(image.itinerary)
+    else
+      redirect_to itinerary_path(image.itinerary)
+    end
+  end
 end
