@@ -1,7 +1,7 @@
 <h2>Latest Updates</h2>
 <div class="latest-updates"></div>
 <ul>
-  <% @itineraries.each do |i| %>
-  <li><%= link_to "#{i.trip_title} by: #{i.users[0].firstname}", itinerary_path(i)%></li>
+  <% @itineraries.reverse.each do |i| %>
+  <li><%= link_to "#{i.trip_title} by: #{i.users[0].firstname} on #{i.created_at.strftime("%m/%d/%Y")}", itinerary_path(i)%></li>
   <% end %>
 </ul>
