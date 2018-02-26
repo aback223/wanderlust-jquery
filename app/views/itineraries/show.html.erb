@@ -17,9 +17,6 @@
   </div>
 </div>
 <br>
-<% if @itinerary.users.include?(current_user) %>
-  <%=link_to "Plan A Day", new_itinerary_day_path(@itinerary), class: "btn btn-sm btn-primary" %>
-<% end %>
 <div class="container">
   <% if @days %>
     <% @days.each do |day| %>
