@@ -40,7 +40,7 @@ class ActivitiesController < ApplicationController
     user = @activity.day.itinerary.users[0]
     if user == current_user
       @activity.destroy
-      redirect_to itinerary_path(@activity.itinerary)
+      redirect_to itinerary_path(@activity.day.itinerary)
     else 
       redirect_to user_path(user)
     end
