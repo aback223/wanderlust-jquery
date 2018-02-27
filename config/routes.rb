@@ -21,6 +21,8 @@ Rails.application.routes.draw do
     resources :activities
   end
 
+  resources :activities, only: [:edit, :update, :destroy]
+
   get '/welcome', to: 'itineraries#index', as: 'welcome'
 
   devise_scope :user do
