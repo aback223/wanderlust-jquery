@@ -31,7 +31,10 @@ class ItinerariesController < ApplicationController
     @itinerary = Itinerary.find(params[:id])
     @user = @itinerary.users[0]
     @days = @itinerary.days
-    render :show
+    respond_to do |format|
+      format.html {render :show}
+      format.json {render json: @itinerary}
+    end
   end
 
   def edit
