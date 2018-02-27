@@ -10,3 +10,8 @@
   <li><strong>URL: </strong><%= @activity.url %></li>
   <li><strong>Notes: </strong><%= @activity.notes %></li>
 </ul>
+
+<div class="container buttons">
+  <%=link_to "Edit", edit_activity_path(@activity), class: "btn btn-sm btn-primary" %>
+  <%= link_to "Delete", activity_path(@activity), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-sm btn-primary" %>
+</div>
