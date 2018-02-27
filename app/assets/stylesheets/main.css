@@ -19,10 +19,10 @@ p, .lead {
   font-family: 'Raleway', sans-serif;
 }
 
-.signup-container {
+.signup-container, .login-container {
   display: block;
   margin: 0 auto;
-  width: 54%;
+  width: 45%;
 }
 
 .pic-thumbnail {
