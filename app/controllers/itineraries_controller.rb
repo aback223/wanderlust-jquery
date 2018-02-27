@@ -25,6 +25,7 @@ class ItinerariesController < ApplicationController
 
   def show
     @itinerary = Itinerary.find(params[:id])
+    @user = @itinerary.users[0]
     @days = @itinerary.days
     render :show
   end
