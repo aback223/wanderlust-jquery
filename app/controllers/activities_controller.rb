@@ -17,6 +17,34 @@ class ActivitiesController < ApplicationController
   def show
     @activity = Activity.find(params[:id])
   end
+
+  def edit
+    @activity = Activity.find(params[:id])
+    user = @activity.day.itinerary.users[0]
+    if user == current_user
+      render :edit
+    else 
+      redirect_to activity_path(@activity)
+    end
+  end
+
+  def update
+    @activity = Activity.find(params[:id])
+    @activity.update(activity_params)
+    day = @activity.day
+    redirect_to day_activity_path(day, @activity)
+  end
+
+  def destroy
+    @activity = Activity.find(params[:id])
+    user = @activity.day.itinerary.users[0]
+    if user == current_user
+      @activity.destroy
+      redirect_to itinerary_path(@activity.itinerary)
+    else 
+      redirect_to user_path(user)
+    end
+  end
   
   private 
 
