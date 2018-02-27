@@ -1,5 +1,5 @@
 <ol class="breadcrumb text-center" style="margin-top: 20px ">
-  <li class="breadcrumb-item active"><%= link_to @activity.day.itinerary.trip_title, itinerary_path(@activity.day.itinerary) %></a></li>
+  <li class="breadcrumb-item active"><%= link_to @itinerary.trip_title, itinerary_path(@itinerary) %></a></li>
   <li class="breadcrumb-item in-active"><%= @activity.day.title %> - <%= @activity.day.date.strftime("%m/%d/%Y")%>
 </ol>
 
