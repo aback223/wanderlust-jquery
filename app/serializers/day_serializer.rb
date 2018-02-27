@@ -1,3 +1,4 @@
 class DaySerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :title, :itinerary_id, :date
+  has_many :activities
 end
