@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
          omniauth_providers: %i[facebook]
 
   validates :firstname, presence: true
-  # validates :lastname, presence: true
+  validates :lastname, presence: true
   has_many :memberships
   has_many :itineraries, through: :memberships
   has_many :invitations, :class_name => "Invite", :foreign_key => 'recipient_id'
