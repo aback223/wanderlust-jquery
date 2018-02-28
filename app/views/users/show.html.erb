@@ -34,7 +34,7 @@
     $(".js-next").on("click", function() {
       var nextId = parseInt($(".js-next").attr("data-id")) + 1;
       $.getJSON(`/users/` + nextId + ".json", function(data) {
-        $(".tripsHeader").text("Trips");
+        $(".tripsHeader").text(`${data["firstname"]}'s Trips`);
         $(".js-next").attr("data-id", data["id"]);
         $(".tripsList").empty()
         for (i=0; i < data["itineraries"].length; i++) {
