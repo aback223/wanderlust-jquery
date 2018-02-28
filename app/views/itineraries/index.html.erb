@@ -1,17 +1,5 @@
 <div class="container text-center">
   <h2>Latest Updates</h2><br>
   <ul id="list"></ul>
-
-  <script type="text/javascript" charset="utf-8">
-     $(function() {
-      $.getJSON("/welcome.json", function(dataset) {
-        $.each(dataset, function(k, v) {
-          $.each(v["users"], function(a,b) {
-            $('#list').prepend('<h4><a href="/itineraries/' + v["id"] + '">' + v["trip_title"] + " by: " + b["firstname"] + " " + b["lastname"] + '</h4><br>');
-          })
-        });
-      });
-    });
-  </script>
 </div>
 
