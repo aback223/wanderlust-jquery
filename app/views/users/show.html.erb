@@ -17,9 +17,9 @@
       <div class="text-center">
       <% if @upcoming_trips %>
           <% @upcoming_trips.each do |itinerary| %>
-            <%= link_to "#{itinerary.datestart.strftime("%m/%d/%Y")} - #{itinerary.trip_title}", user_itinerary_path(current_user, itinerary) %>
+            <h4><%= link_to "#{itinerary.datestart.strftime("%m/%d/%Y")} - #{itinerary.trip_title}", user_itinerary_path(current_user, itinerary) %>
             <% if @user == current_user %>
-              <strong><%= link_to "Delete", user_itinerary_path(@user, itinerary), method: :delete, data: {confirm: "Are you sure?"} %></strong><br>
+              <strong><%= link_to "Delete", user_itinerary_path(@user, itinerary), method: :delete, data: {confirm: "Are you sure?"} %></strong></h4><br>
             <% else %>
             <br>
             <% end %>
