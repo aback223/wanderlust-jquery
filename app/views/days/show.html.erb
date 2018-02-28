@@ -3,8 +3,7 @@
   <li class="breadcrumb-item in-active"><%= @day.title %></li>
 </ol>
 
-<h2 class="dayTitle"><%= @day.title %> (<%= @day.date %>)</h2>
-<strong><a href="#" class="js-next" data-id="<%=@day.id%>">Next >></a></strong>
+<h2><%= @day.title %> (<%= @day.date %>)</h2>
 
 <div class="dayActivities">
   <% @day.activities.each do |a| %>
@@ -17,29 +16,3 @@
     </ul>
   <% end %>
 </div>
-
-<script type="text/javascript" charset="utf-8">
-   $(function() {
-    $(".js-next").on("click", function() {
-      var nextId = parseInt($(".js-next").attr("data-id")) + 1;
-      $.getJSON(`/itineraries/<%=@day.itinerary.id%>/days/` + nextId + ".json", function(data) {
-        $(".dayTitle").text(data["title"] + " (" + data["date"] + ")");
-        $(".js-next").attr("data-id", data["id"]);
-        $(".dayActivities").empty()
-        for (i=0; i < data["activities"].length; i++) {
-          $(".dayActivities").append(
-            `
-            <ul>
-            <h3>${data["activities"][i]["title"]}</h3>
-            <li><strong>Activity Type: </strong>${data["activities"][i]["activity_type"]}</li>
-            <li><strong>Address: </strong>${data["activities"][i]["address"]}</li>
-            <li><strong>URL: </strong>${data["activities"][i]["url"]}</li>
-            <li><strong>Notes: </strong>${data["activities"][i]["notes"]}</li>
-            </ul>
-            `
-          )
-        }
-      });
-    });
-  });
-</script>
