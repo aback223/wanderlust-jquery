@@ -8,14 +8,7 @@ class DaysController < ApplicationController
 
   def create
     @itinerary = Itinerary.find(params[:itinerary_id])
-    day = params["day"]
-    count = nil 
-    if @itinerary.days.empty?
-      count = 0
-    else
-      count = @itinerary.days.last.count + 1
-    end
-    @day = @itinerary.days.create(title: day["title"], date: day["date"], count: count)
+    @day = @itinerary.days.create(day_params)
     if @day.save
       redirect_to itinerary_path(params[:itinerary_id])
     else
@@ -61,6 +54,6 @@ class DaysController < ApplicationController
   private
 
   def days_params
-    params.require(:day).permit(:title, :date, :count)
+    params.require(:day).permit(:title, :date)
   end
 end
