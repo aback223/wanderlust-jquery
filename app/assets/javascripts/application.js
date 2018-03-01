@@ -27,14 +27,14 @@ User.prototype.userDisplay = function() {
   $(".tripsList").empty();
 
   for(i=0; i<this.itineraries.length;i++){
-    html += '<h4><a href="/itineraries/"' + `${this.itineraries[i].id}` + '>' + this.itineraries[i].trip_title + '</a></h4><br>';
+    html += `<h4><a href="/itineraries/${this.itineraries[i].id}">${this.itineraries[i].datestart} - ${this.itineraries[i].trip_title} </h4></a><br>`;
   }
  
   $(".js-next").attr("data-id", this.id);
   $(".tripsHeader").text(`${this.firstname}'s Trips`);
-  // $(".tripsHeader").text(`${this.itineraries.length}`);
   $(".tripsList").append(html);
 }
+
 
 
 $(function() {
