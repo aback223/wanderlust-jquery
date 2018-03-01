@@ -24,10 +24,15 @@ function User(data) {
 
 User.prototype.userDisplay = function() {
   var html = "";
-  html += "<h4>"+this.firstname+"</h4>";
   $(".tripsList").empty();
+
+  for(i=0; i<this.itineraries.length;i++){
+    html += '<h4><a href="/itineraries/"' + `${this.itineraries[i].id}` + '>' + this.itineraries[i].trip_title + '</a></h4><br>';
+  }
+ 
   $(".js-next").attr("data-id", this.id);
   $(".tripsHeader").text(`${this.firstname}'s Trips`);
+  // $(".tripsHeader").text(`${this.itineraries.length}`);
   $(".tripsList").append(html);
 }
 

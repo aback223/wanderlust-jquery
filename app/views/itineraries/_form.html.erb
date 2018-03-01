@@ -1,6 +1,6 @@
 <div class="form-row">
   <div class="form-group-lg col-xl-6">
-    <%= f.text_field :trip_title, placeholder: "Title", class: "form-control" %><br />
+    <%= f.text_field :trip_title, placeholder: "Add A Title", class: "form-control" %><br />
   </div>
 </div>
 <div class="form-row">
@@ -19,7 +19,7 @@
 <h3>Add some pics!</h3>
   <%= f.fields_for :images do |image| %>
     <%= image.label :url,"Link:" %>
-    <%= image.text_field :url %><br>
+    <%= image.text_field :url, placeholder: ".gif, .jpg, or .png" %><br>
   <% end %>
 </div>
 <br>
