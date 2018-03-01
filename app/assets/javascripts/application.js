@@ -16,22 +16,28 @@
 
 //Click next to see next user and links to their itineraries
 
- $(function() {
+function User(data) {
+  this.id = data.id
+  this.firstname = data.firstname;
+  this.itineraries = data.itineraries;
+}
+
+User.prototype.userDisplay = function() {
+  var html = "";
+  html += "<h4>"+this.firstname+"</h4>";
+  $(".tripsList").empty();
+  $(".js-next").attr("data-id", this.id);
+  $(".tripsHeader").text(`${this.firstname}'s Trips`);
+  $(".tripsList").append(html);
+}
+
+
+$(function() {
   $(".js-next").on("click", function() {
     var nextId = parseInt($(".js-next").attr("data-id")) + 1;
     $.getJSON(`/users/` + nextId + ".json", function(data) {
-      $(".tripsHeader").text(`${data["firstname"]}'s Trips`);
-      $(".js-next").attr("data-id", data["id"]);
-      $(".tripsList").empty()
-      for (i=0; i < data["itineraries"].length; i++) {
-        $(".tripsList").append(
-          `
-          <h4>
-          <a href="/itineraries/${data["itineraries"][i]["id"]}">${data["itineraries"][i]["datestart"]} - ${data["itineraries"][i]["trip_title"]}</a>
-          </h4><br>
-          `
-        )
-      }
+      var user = new User(data);
+      user.userDisplay();
     });
   });
 });
