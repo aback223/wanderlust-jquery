@@ -9,7 +9,12 @@
   <% @day.activities.each do |a| %>
     <ul>
       <h3><%= a.title %></h3>
-      <li><strong>Activity Type: </strong><%= a.activity_type %></li>
+      <li><strong>Activity Type: </strong>
+        <% if !a.categories.empty? %>
+          <% a.categories.each do |c| %>
+            <%= c.name %><%=list_helper(c, a)%>
+          <% end %>
+        <% end %>
       <li><strong>Address: </strong><%= a.address %></li>
       <li><strong>URL: </strong><%= a.url %></li>
       <li><strong>Notes: </strong><%= a.notes %></li>
