@@ -47,6 +47,10 @@ p, .lead, .navbar-nav a, .navbar-nav-2 a, .breadcrumb {
   height: 100px;
 }
 
+.result-resize {
+  height: 300px;
+}
+
 .corner-logo {
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
