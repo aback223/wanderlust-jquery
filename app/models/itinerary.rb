@@ -1,6 +1,6 @@
 class Itinerary < ApplicationRecord
-  has_many :memberships
-  has_many :users, through: :memberships
+  has_many :comments
+  has_many :users, through: :comments
   has_many :invites
   validates :trip_title, presence: true
   has_many :images
