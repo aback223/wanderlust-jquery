@@ -1,6 +1,6 @@
 class Itinerary < ApplicationRecord
-  has_many :memberships
-  has_many :users, through: :memberships
+  has_many :comments
+  has_many :users, through: :comments
   has_many :invites
   has_many :images
   has_many :days
