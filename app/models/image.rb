@@ -4,4 +4,5 @@ class Image < ApplicationRecord
     with: %r{\.gif|jpg|png|jpeg}, 
     message: "must be a url for gif, jpg, or png image."
   }
+  validates :url, presence: true
 end
