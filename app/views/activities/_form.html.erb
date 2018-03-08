@@ -1,23 +1,39 @@
-<div class="field">
-  <%= f.text_field :title, placeholder: "Title" %>
+<div class="row">
+  <%= f.text_field :title, placeholder: "Title", class: "form-control" %>
 </div>
 <br>
-<div class="field">
-  <%= f.select :activity_type, ['Food', 'Activity'] %>
+<div class="row">
+  <%= f.collection_check_boxes :category_ids, Category.all, :id, :name %>
+  <%= f.fields_for :categories, @activity.categories.build do |categories_fields| %>
+    <%= categories_fields.text_field :name, placeholder: "Category ie. Food or Activity", class: "form-control" %>
+  <% end %>
 </div>
 <br>
-<div class="field">
-  <%= f.text_field :address, placeholder: "Address" %>
+<div class="row">
+  <%= f.text_field :address, placeholder: "Address", class: "form-control" %>
 </div>
 <br>
-<div class="field">
-  <%= f.text_field :url, placeholder: "URL" %>
+<div class="row">
+  <%= f.text_field :url, placeholder: "URL", class: "form-control" %>
 </div>
 <br>
-<div class="field">
-  Notes:<br><%= f.text_area :notes %>
+<div class="row">
+  Notes:<br><%= f.text_area :notes, class: "form-control" %>
 </div>
 <br>
 <div class="actions">
   <%= f.submit submit_text, class: 'btn btn-sm btn-primary' %>
 </div>
+
+<br>
+<% if !@errors.nil? %>
+  <div class="error">
+      <label><%= pluralize(@errors.count, "error") %> prohibited this pin from
+      being saved:</label>
+    <ul>
+      <% @errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>  
+  </div>  
+<% end %>
