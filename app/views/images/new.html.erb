@@ -11,3 +11,25 @@
     <% end %>
   </div>
 </div>
+<br>
+<div id="imageResult">
+</div>
+
+<script type="text/javascript" charset="utf-8">
+  //Renders image on form page
+  $(function () {
+    $('form').submit(function(event) {
+      //prevent form from submitting the default way
+      event.preventDefault();
+
+      var values = $(this).serialize();
+
+      var posting = $.post(`/itineraries/${<%=@itinerary.id%>}/images`, values);
+
+      posting.done(function(data) {
+        var post = data;
+        $("#imageResult").append(`<img src="${post["url"]}" class="result-resize">`)
+      });
+    });
+  });
+</script>
