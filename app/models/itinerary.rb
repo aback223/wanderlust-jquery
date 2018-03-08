@@ -19,4 +19,16 @@ class Itinerary < ApplicationRecord
     end
     itineraries
   end
+
+  def datestart_cant_be_in_past
+    if datestart && datestart < Date.today
+      errors.add(:datestart, "can't be in the past")
+    end
+  end
+
+  def dateend_comes_after_datestart
+    if dateend && dateend < datestart
+      errors.add(:dateend, "can't be before start date")
+    end
+  end
 end
