@@ -11,8 +11,6 @@ class ItinerariesController < ApplicationController
 
   def new
     @itinerary = Itinerary.new
-    @itinerary.images.build(image_num: '0')
-    @itinerary.images.build(image_num: '1')
   end
 
   def create
