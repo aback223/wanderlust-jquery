@@ -8,7 +8,7 @@ class ImagesController < ApplicationController
     itinerary = Itinerary.find(params[:itinerary_id])
     @image = itinerary.images.create(url: params[:image][:url])
     if @image.save
-      redirect_to itinerary_path(itinerary)
+      render json: @image, status: 201
     else
       @errors = @image.errors
       render :new
