@@ -1,7 +1,9 @@
 <ol class="breadcrumb text-center" style="margin-top: 20px ">
   <li class="breadcrumb-item active"><%= link_to "Latest Updates", welcome_path %></a></li>
   <li class="breadcrumb-item in-active"><%= "#{@user.firstname}'s Page" %></li>
-  <li class="breadcrumb-item active"><a href="#" class="js-next" data-id="<%=@user.id%>"> Next User >></a></li>
+  <% if @user != User.all.last %>
+    <li class="breadcrumb-item active"><a href="#" class="js-next" data-id="<%=@user.id%>"> Next User >></a></li>
+  <% end %>
 </ol>
 
 <div class="container">
