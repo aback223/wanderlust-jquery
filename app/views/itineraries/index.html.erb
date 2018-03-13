@@ -1,5 +1,34 @@
 <div class="container text-center">
   <h2>Latest Updates</h2><br>
+  <button class="js-sort">Sort By Trip Date</button><br><br>
   <div id="list"></div>
 </div>
+
+<script type="text/javascript" charset="utf-8">
+  $(function() {
+    $.getJSON("/welcome.json", function(dataset) {   
+      dataset.forEach(function(data) {
+
+        $('#list').prepend('<h4><a href="/itineraries/' + data.id + '">' + data.trip_title + " (" + data.datestart + ")" + " by: " + data.users[0].firstname + " " + data.users[0].lastname + '</h4><br>')
+      })
+    });
+  });
+
+  $(function() {
+    $(".js-sort").on('click', function() {
+      $.getJSON("/welcome.json", function(dataset) {
+        var sortedData = dataset.sort(function(a,b) {
+          return a.datestart.localeCompare(b.datestart)
+        })
+        $("#list").empty();
+        sortedData.forEach(function(data) {
+          $('#list').append('<h4><a href="/itineraries/' + data.id + '">' + data.trip_title + " (" + data.datestart + ")" + " by: " + data.users[0].firstname + " " + data.users[0].lastname + '</h4><br>')
+        })
+      })
+    })
+  })
+</script>
+
+
+
 
