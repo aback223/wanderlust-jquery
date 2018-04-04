@@ -1,11 +1,10 @@
 $(function() {
-    $.getJSON("/welcome.json", function(dataset) {   
-      dataset.forEach(function(data) {
-
-        $('#list').prepend('<h4><a href="/itineraries/' + data.id + '">' + data.trip_title + " (" + data.datestart + ")" + " by: " + data.users[0].firstname + " " + data.users[0].lastname + '</h4><br>')
-      })
+  $.getJSON("/welcome.json", function(dataset) {   
+    dataset.forEach(function(data) {
+      $('#list').prepend('<h4><a href="/itineraries/' + data.id + '">' + data.trip_title + " (" + data.datestart + ")" + " by: " + data.users[0].firstname + " " + data.users[0].lastname + '</h4><br>')
     });
   });
+});
 
 $(function() {
   $(".js-sort").on('click', function() {
@@ -16,7 +15,7 @@ $(function() {
       sortedData.forEach(function(data) {
 
         $('#list').append('<h4><a href="/itineraries/' + data.id + '">' + data.trip_title + " (" + data.datestart + ")" + " by: " + data.users[0].firstname + " " + data.users[0].lastname + '</h4><br>')
-      })
-    })
-  })
-})
+      });
+    });
+  });
+});
