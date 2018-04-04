@@ -39,19 +39,21 @@
     </div><!--col-xs-7-->
 
     <div class="col-xs-5">
-      <h3>Images</h3>
-      <% if !@itinerary.images.empty? %>
-        <% @itinerary.images.each do |image| %>
-          <div class="img-thumbnail text-right">
-            <% if itinerary_belongs_to_user(current_user) %>
-              <strong><%= link_to "Delete", itinerary_image_path(@itinerary, image), method: :delete, data: {confirm: "Are you sure?" } %></strong><br>
-            <% end %>
-            <%if !image.url.empty? %><%= link_to image_tag("#{image.url}", class: "pic-thumbnail"), image.url %><% end %>
-          </div>
+      <div class="row">
+        <h3>Images</h3>
+        <% if !@itinerary.images.empty? %>
+          <% @itinerary.images.each do |image| %>
+            <div class="img-thumbnail text-right">
+              <% if itinerary_belongs_to_user(current_user) %>
+                <strong><%= link_to "Delete", itinerary_image_path(@itinerary, image), method: :delete, data: {confirm: "Are you sure?" } %></strong><br>
+              <% end %>
+              <%if !image.url.empty? %><%= link_to image_tag("#{image.url}", class: "pic-thumbnail"), image.url %><% end %>
+            </div>
+          <% end %>
+        <% else %>
+          You haven't added any images!
         <% end %>
-      <% else %>
-        You haven't added any images!
-      <% end %>
+      </div>
     </div> <!--col-xs-5-->
   </div> <!-- row -->
 
