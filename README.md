@@ -3,6 +3,8 @@
 ## Description
 Wanderlust is a web app that allows you to create and plan your trips with your friends. 
 
+[Demo](https://intense-lake-86236.herokuapp.com/)
+
 ## Installation Guide
 
 Clone the repo and then install the needed gems locally:
